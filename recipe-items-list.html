@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Recipe Book</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/logo.png">
+        <!-- CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const myCarouselElement = document.querySelector('#myCarousel');
+                if (myCarouselElement) {
+                    const carousel = new bootstrap.Carousel(myCarouselElement, {
+                        interval: 2000,
+                        touch: false
+                    });
+                }
+    
+                const currentLocation = window.location.pathname.split("/").pop();
+                const navLinks = document.querySelectorAll('.nav-link');
+    
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentLocation) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
+        <style>
+            /* Add underline to active link */
+            .nav-link.active {
+                background:#000000;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Start Header -->
+            <div class="container-fluid">
+                <div class="row bg-dark text-white py-2">
+                    <div class="col-md-8">
+                        <i class="bi bi-telephone-fill"></i> +91 8765432101 &nbsp;
+                        <i class="bi bi-envelope-fill"></i> recipeinfo@gmail.com
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <h5 id="greeting" class="mb-0">Welcome!</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg bg-success">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="recipe-items-list.html">Recipes</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Recipe Details
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <b>Indian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-1.html">
+                                                            <img src="img/r-1.PNG" width="50" height="50" alt="One Pan Coconut Chettinad Prawn Curry">
+                                                            One Pan Coconut Chettinad Prawn Curry
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-2.html">
+                                                            <img src="img/r-2.PNG" width="50" height="50" alt="Vegetable Curry with chickpeas and coconut milk">
+                                                            Vegetable Curry with chickpeas and coconut milk
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-3.html">
+                                                            <img src="img/r-3.PNG" width="50" height="50" alt="Tikka Masala Vegetarian Pies">
+                                                            Tikka Masala Vegetarian Pies
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <b>Italian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-1.html">
+                                                            <img src="img/italian-1.PNG" width="50" height="50" alt="Creamy Tomato Risotto">
+                                                            Creamy Tomato Risotto
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-2.html">
+                                                            <img src="img/italian-2.PNG" width="50" height="50" alt="Roast Pepper Pesto with Pasta">
+                                                            Roast Pepper Pesto with Pasta
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-3.html">
+                                                            <img src="img/italian-3.PNG" width="50" height="50" alt="Spaghetti with Smoky Tomato & Seafood Sauce">
+                                                            Spaghetti with Smoky Tomato & Seafood Sauce
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="addrecipe.html">Submit Recipe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="about.html">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                         <button class="nav-link dropdown-toggle btn btn-dark text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Register
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="Register.html">Register</a></li>
+                                        </ul>                                  
+                                    </li>
+                                </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-dark" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="text-center my-3">
+                        <img src="img/logo.png" width="100" height="100" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        <!-- End Header -->
+
+        <!--Start Home Slider-->
+            <section class="row">
+                <div class="container">
+                    <img src="img/banner.PNG" alt="Snow" style="width:100%; height:300px">
+                    <div class="centered-left">
+                        <h2 class="s45 bg-success  p-3">RECIPIES ITEMS</h2>
+                    </div> 
+                </div>
+            </section><br>
+        <!--End Home Slider-->
+        <!--Start Recipe List -->
+            <section class="container">
+            <div class="row">
+                <div class="leftcolumn col-lg-8">
+                    <div class="leftcolumn">
+                        <h3 class="black align-left">Recipe Items</h3>
+                    </div>
+                    <div class="">
+                        <a href="recipe-items-list.html">
+                            <button type="button" class="bg-dark text-white p-1">
+                                <i class="bi bi-list-task " style="font-size:20px"></i>
+                            </button>
+                        </a>
+                        <a href="recipe-items-grid.html">
+                            <button type="button"  class="bg-dark text-white p-1">
+                            <i class="bi bi-grid-3x3-gap-fill"  style="font-size:20px"></i>
+                            </button>
+                        </a>
+                    </div><br>
+                    <h4 class="black">Indian Healthiest Recipes Items</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="img/r-1.PNG">
+                                </div>
+                                <div class="col-lg ">
+                                    <h3>One Pan Coconut Chettinad Prawn Curry</h3>
+                                    <p class="card-text">Experience the rich flavors of One Pan Coconut Chettinad Prawn Curry, a spicy and aromatic delight with a hint of coconut.</p>
+                                    <div class="rating-box">
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-figure">(4.8 / 5)</span><br><br><br>
+                                        <p>
+                                            <i class="bi bi-person-fill black"></i>&nbsp;&nbsp;&nbsp;Ankita Choudhary&nbsp;&nbsp;&nbsp;
+                                            <i class="bi bi-calendar-check-fill black"></i>&nbsp;&nbsp;&nbsp;14-June-2024
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><br>
+                        <li class="list-group-item list-group-item-light">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="img/r-2.PNG" width="100%">
+                                </div>
+                                <div class="col-lg ">
+                                    <h3>Vegetable Curry with chickpeas and coconut milk</h3>
+                                    <p class="card-text">A delightful blend of spices, creamy coconut milk, tender vegetables, and aromatic herbs creates a rich, flavorful vegetarian curry.</p>
+                                    <div class="rating-box green">
+                                        <span class="rating-icons "><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg " d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-figure">(4.8 / 5)</span><br><br><br>
+                                        <p>
+                                            <i class="bi bi-person-fill black"></i>&nbsp;&nbsp;&nbsp;Harish Sen&nbsp;&nbsp;&nbsp;
+                                            <i class="bi bi-calendar-check-fill black"></i>&nbsp;&nbsp;&nbsp;15-June-2024
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><br>
+                        <li class="list-group-item list-group-item-light">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="img/r-3.PNG">
+                                </div>
+                                <div class="col-lg ">
+                                    <h3>Tikka Masala Vegetarian Pies</h3>
+                                    <p class="card-text">Tikka Masala Vegetarian Pies offer a savory blend of spices, rich tomato sauce, and tender vegetables wrapped in a flaky crust. Delicious!</p>
+                                    <div class="rating-box">
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-figure">(4.8 / 5)</span><br><br><br>
+                                        <p>
+                                            <i class="bi bi-person-fill black"></i>&nbsp;&nbsp;&nbsp;Ankita Choudhary&nbsp;&nbsp;&nbsp;
+                                            <i class="bi bi-calendar-check-fill black"></i>&nbsp;&nbsp;&nbsp;16-June-2024
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul><br>
+                    <div class="container">
+                        <img src="img/footer.PNG" alt="Snow" style="width:100%;">
+                        <div class="center-left p-4  d-none d-md-block">
+                            <h3 class="bg-success p-3">Recipe of the day</h3><br>
+                            <h3 class="black">Indian & Italian Healthy Recipes Here!!</h3><br>
+                            <p class="black">"Experience Indian and Italian healthy recipes, blending flavors and wellness!"</p><br>
+                            <h4 class="red">Read More..</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-column col-lg-4">
+                    <div class="row">
+                        <h2 class="black">Get Social With Us</h2><br>
+                        <hr style="color:black">
+                        <div class="card  text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 p-3" style="width:8rem;">
+                            <i class="bi bi-facebook black"></i>
+                            <span class="black">
+                                36.5K<br>
+                                <b>LIKES</b>
+                            </span>
+                            
+                        </div> &nbsp;&nbsp;&nbsp;
+                        <div class="card  text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3 p-3" style="width:8rem">
+                            <i class="bi bi-instagram black"></i>
+                            <span class="black">
+                                36.5K<br>
+                                <b>LIKES</b>
+                            </span>
+                            
+                        </div> &nbsp;&nbsp;&nbsp;
+                        <div class="card  text-info-emphasis bg-info-subtle border border-info-subtle rounded-3 p-3"  style="width:8rem">
+                            <i class="bi bi-google black"></i>
+                            <span class="black">
+                                36.5K<br>
+                                <b>LIKES</b>
+                            </span>
+                            
+                        </div> 
+                    </div><br>
+
+                    <div class="card">
+                        <img src="img/extra.PNG" width="100%" height="100%">
+                    </div><br>
+                    <div class="card">
+                        <h3>Follow Me</h3>
+                        <p>Recipe Healthy Book</p>
+                    </div><br><br>
+                </div>
+
+            </div><br>
+           
+            <div class="row">
+                <div class="leftcolumn col-lg-8">
+                    
+                    <h4 class="black">Italian Healthiest Recipes Items</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="img/italian-1.PNG" width="100%">
+                                </div>
+                                <div class="col-lg ">
+                                    <h3>Creamy Tomato Risotto</h3>
+                                    <p class="card-text">Velvety, rich tomato risotto, bursting with creamy goodness, kissed by Italian herbs, served piping hot for a comforting taste.</p>
+                                    <div class="rating-box">
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-figure">(4.8 / 5)</span><br><br><br>
+                                        <p>
+                                            <i class="bi bi-person-fill black"></i>&nbsp;&nbsp;&nbsp;Ankita Choudhary&nbsp;&nbsp;&nbsp;
+                                            <i class="bi bi-calendar-check-fill black"></i>&nbsp;&nbsp;&nbsp;14-June-2024
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><br>
+                        <li class="list-group-item list-group-item-light">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="img/italian-2.PNG" width="100%">
+                                </div>
+                                <div class="col-lg ">
+                                    <h3>Roast Pepper Pesto with Pasta</h3>
+                                    <p class="card-text">Delightful pasta infused with vibrant roast pepper pesto, bursting with flavor, creating a satisfying and comforting meal in just 20 minutes.</p>
+                                    <div class="rating-box">
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-figure">(4.8 / 5)</span><br><br><br>
+                                        <p>
+                                            <i class="bi bi-person-fill black"></i>&nbsp;&nbsp;&nbsp;Harish Sen&nbsp;&nbsp;&nbsp;
+                                            <i class="bi bi-calendar-check-fill black"></i>&nbsp;&nbsp;&nbsp;15-June-2024
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li><br>
+                        <li class="list-group-item list-group-item-light">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img src="img/italian-3.PNG" width="100%">
+                                </div>
+                                <div class="col-lg ">
+                                    <h3>Spaghetti with Smoky Tomato & Seafood Sauce</h3>
+                                    <p class="card-text">A savory blend of smoky tomato sauce with tender seafood atop perfectly cooked spaghetti, delivering a rich, satisfying flavor experience.</p>
+                                    <div class="rating-box">
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    
+                                            <g>
+                                                <title>background</title>
+                                                <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                            </g>
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                            </g>
+                                        </svg></span>
+                                        <span class="rating-figure">(4.8 / 5)</span><br><br><br>
+                                        <p>
+                                            <i class="bi bi-person-fill black"></i>&nbsp;&nbsp;&nbsp;Ankita Choudhary&nbsp;&nbsp;&nbsp;
+                                            <i class="bi bi-calendar-check-fill black"></i>&nbsp;&nbsp;&nbsp;16-June-2024
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul><br>
+                    
+                </div>
+                <div class="right-column col-lg-4">
+                 
+                </div>
+            </div>
+                </div>
+            </section>
+        <!--End Recipe List-->
+        <!--Start Footer-->
+            <div class="footer bg-success w100 p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 >About Us</h4>
+                            <p >"Discover easy, healthy recipes for every diet at Healthy Recipe Book."</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Newsletter</h4>
+                            <form class="d-flex">
+                                <input class="form-control me-2 w-75" type="text" id="searchInput" placeholder="Search">
+                                <button class="btn btn-dark" type="button" onclick="search()">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Get Social With Us</h4>
+                            <div class="d-flex pt-2 text-center ">
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-facebook"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-google"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-telegram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-twitter"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-youtube"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-whatsapp"></i></a>&nbsp;&nbsp;
+                            </div>
+                        </div>                            
+                    </div><hr>
+                    <div class=" text-center ">
+                        &copy; <a class="border-bottom" href="#" style="color:whitesmoke">Recipe Healthy Book</a>, All Right Reserved.                             
+                            Designed By <a class="border-bottom" style="color:whitesmoke; text-decoration: none;" >Nikita Khatri</a>
+                    </div>
+                </div>
+            </div>
+        <!--End Footer-->
+    </body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Recipe Book</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/logo.png">
+        <!-- CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const myCarouselElement = document.querySelector('#myCarousel');
+                if (myCarouselElement) {
+                    const carousel = new bootstrap.Carousel(myCarouselElement, {
+                        interval: 2000,
+                        touch: false
+                    });
+                }
+    
+                const currentLocation = window.location.pathname.split("/").pop();
+                const navLinks = document.querySelectorAll('.nav-link');
+    
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentLocation) {
+                        link.classList.add('active');
+                    }
+                });
+                function handleSearch(event) {
+                    event.preventDefault();
+                    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+                    if (searchInput.includes('indian recipe')) {
+                        window.location.href = 'recipe-items-list.html';
+                    } else if (searchInput.includes('italian recipe')) {
+                        window.location.href = 'recipe-items-grid.html';
+                    } else {
+                        alert('Please enter "Indian recipe" or "Italian recipe".');
+                    }
+                }
+            });
+        </script>
+        <style>
+            /* Add underline to active link */
+            .nav-link.active {
+                background:#000000;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Start Header -->
+            <div class="container-fluid">
+                <div class="row bg-dark text-white py-2">
+                    <div class="col-md-8">
+                        <i class="bi bi-telephone-fill"></i> +91 8765432101 &nbsp;
+                        <i class="bi bi-envelope-fill"></i> recipeinfo@gmail.com
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <h5 id="greeting" class="mb-0">Welcome!</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg bg-success">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="recipe-items-list.html">Recipes</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Recipe Details
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <b>Indian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-1.html">
+                                                            <img src="img/r-1.PNG" width="50" height="50" alt="One Pan Coconut Chettinad Prawn Curry">
+                                                            One Pan Coconut Chettinad Prawn Curry
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-2.html">
+                                                            <img src="img/r-2.PNG" width="50" height="50" alt="Vegetable Curry with chickpeas and coconut milk">
+                                                            Vegetable Curry with chickpeas and coconut milk
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-3.html">
+                                                            <img src="img/r-3.PNG" width="50" height="50" alt="Tikka Masala Vegetarian Pies">
+                                                            Tikka Masala Vegetarian Pies
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <b>Italian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-1.html">
+                                                            <img src="img/italian-1.PNG" width="50" height="50" alt="Creamy Tomato Risotto">
+                                                            Creamy Tomato Risotto
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-2.html">
+                                                            <img src="img/italian-2.PNG" width="50" height="50" alt="Roast Pepper Pesto with Pasta">
+                                                            Roast Pepper Pesto with Pasta
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-3.html">
+                                                            <img src="img/italian-3.PNG" width="50" height="50" alt="Spaghetti with Smoky Tomato & Seafood Sauce">
+                                                            Spaghetti with Smoky Tomato & Seafood Sauce
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="addrecipe.html">Submit Recipe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="about.html">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Register
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item text-center"><i class="bi bi-person-circle s75"></i></li>
+                                            <li><a class="dropdown-item" href="Register.html">Register</a></li>
+                                        </ul>                                    
+                                    </li>
+                                </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-dark" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="text-center my-3">
+                        <img src="img/logo.png" width="100" height="100" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        <!-- End Header -->
+        <!--Start Home Slider-->
+            <section class="row">
+                <div class="container">
+                    <img src="img/banner.PNG" alt="Banner" style="width:100%; height:300px">
+                    <div class="centered-left">
+                        <h2 class="s45 bg-success  p-3">About Page</h2>
+                    </div>
+                </div>
+            </section><br><br>
+        <!--End Home Slider-->
+        <!-- Start Main Section -->
+            <section class="container">
+                <div class="row">
+                    <div class="leftcolumn col-lg-4">
+                       <img src="img/about-1.PNG" width="100%" height="100%">
+                    </div>  
+                    <div class="rightcolumn col-lg-8 p-3">
+                        <h2 class="align-left black-1 smallcaps">Welcome to our&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/about-icon.PNG" width="100px" height="100px"><br> Healthy Recipe Book website! </h2>
+                        <p class="align-left black-1 align-justify">
+                            Explore a world of delicious and nutritious recipes designed to make your culinary 
+                            journey both enjoyable and health-conscious. On our Home Page, you'll find a welcoming 
+                            introduction to our philosophy of healthy eating. Dive into our extensive collection of 
+                            Recipes, categorized for your convenience into various cuisines such as Indian and Italian, 
+                            ensuring there's something for every palate. Each Recipe Detail page offers comprehensive 
+                            information including preparation times, servings, a list of fresh ingredients, step-by-step 
+                            cooking instructions, a brief introduction to the chef, and space for user comments and 
+                            reviews. Join our community through the Login/Registration section, where you can save your 
+                            favorite recipes and share your own culinary creations. Learn more about our mission and team 
+                            on the About Page, and don't hesitate to reach out to us via the Contact Page with any 
+                            questions or feedback. Your journey to healthier eating starts here!
+                        </p>
+                    </div>
+                </div>
+            </section><br>
+        <!-- End Main Section -->
+        <!-- Start Themes Section -->
+            <section class="container">
+            <div class="row">
+                <div class="leftcolumn col-lg-8">
+                    <h2 class="align-left black-1 smallcaps">Thematic Program</h2>
+                    <p class="align-left black-1 align-justify">
+                        Featuring a delightful fusion of Indian and Italian recipes 
+                        that will elevate your culinary experience. Our collection includes aromatic dishes like One Pan Coconut 
+                        Chettinad Prawn Curry, comforting Vegetable Curry with Chickpeas and Coconut Milk, and savory Tikka Masala 
+                        Vegetarian Pies. For Italian cuisine lovers, we offer creamy Tomato Risotto, flavorful Roast Pepper Pesto 
+                        with Pasta, and robust Spaghetti with Smoky Tomato & Seafood Sauce. Our thematic menus section provides 
+                        inspiration for special occasions, whether you're planning an Italian Night, a BBQ Party, or Holiday Feasts. 
+                        Explore these carefully curated recipes and thematic menus to create memorable and enjoyable meals for any event.
+                    </p>
+                </div>  
+                <div class="rightcolumn col-lg-2 "><br><br><br>
+                    <img src="img/about-2.PNG">
+                </div>
+            </div>
+            </section><br>
+        <!-- End themes Section -->
+    
+        <!-- Start a Special Diets with pairing complements -->
+            <section class="container">
+                <div class="row">
+                    <h2 class=" black-1 smallcaps">Special Pairing Diets for a healthy recipe book<br><img src="img/capture.PNG" width="100px" height="100px"></h2>
+                    <ol start="a" class="align-left black-1 align-justify">
+                        <li><b> One Pan Coconut Chettinad Prawn Curry:</b> Pair this aromatic dish with side dishes like Steamed Basmati Rice, Jeera Rice, Garlic Naan, Lemon Rice, or Vegetable Pulao. Accompaniments such as Cucumber Raita, Mango Chutney, and Crispy Papadum curry will elevate its flavors. For drinks, Mango Lassi, Coconut Water, Masala Chai, or Mint Lemonade will provide a balanced and enjoyable meal experience.</li>
+                        <li><b>Vegetable Curry with Chickpeas and Coconut Milk:</b> Serve this hearty curry with Basmati or Brown Rice, Naan or Roti, Cucumber Raita, Mango Chutney, and a Green Salad. Complement the meal with Lassi, Chilled Coconut Water, Masala Chai, Mango Lassi, or Sparkling Water with Lime for a delicious and satisfying experience.</li>
+                        <li><b>Tikka Masala Vegetarian Pies:</b> These savory pies pair perfectly with Cucumber Raita, Mint Chutney, and salads like Green Salad with Lemon Vinaigrette or Kachumber Salad. Drinks such as Mango Lassi and Masala Chai, and desserts like Gulab Jamun or Kulfi, will make your meal even more enjoyable.</li>
+                        <li><b>Creamy Tomato Risotto:</b> Enhance this creamy dish with Garlic Bread, Caprese Salad, Grilled Vegetables, or Roasted Chicken. Pair it with White Wine, Sparkling Water, Iced Tea, or a Tomato Basil Martini to create a complete and memorable meal.</li>
+                        <li><b>Roast Pepper Pesto with Pasta:</b> Complement this flavorful pasta with Garlic Bread, Caprese Salad, Grilled Vegetables, or Caesar Salad. Drinks like White Wine, Lemonade, Iced Tea, or Sparkling Water, and desserts such as Tiramisu or Fruit Sorbet, will round out your dining experience beautifully.</li>                            
+                        <li><b>Spaghetti with Smoky Tomato & Seafood Sauce:</b> Serve this robust spaghetti with Garlic Bread, Caesar Salad, or Grilled Vegetables. Pair it with White Wine, Sparkling Water with Lemon, or Rosé Wine, and finish with desserts like Tiramisu or Lemon Sorbet. These combinations will elevate your dining experience, making the Spaghetti with Smoky Tomato & Seafood Sauce the star of a well-rounded, delicious meal.
+                    </ol>
+                </div>
+            </section>
+        <!-- End a Special Diets with pairing complements -->
+        <!--Start Footer-->
+            <div class="footer bg-success w100 p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 >About Us</h4>
+                            <p >"Discover easy, healthy recipes for every diet at Healthy Recipe Book."</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Newsletter</h4>
+                            <form class="d-flex">
+                                <input class="form-control me-2 w-75" type="text" id="searchInput" placeholder="Search">
+                                <button class="btn btn-dark" type="button" onclick="search()">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Get Social With Us</h4>
+                            <div class="d-flex pt-2 text-center ">
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-facebook"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-google"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-telegram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-twitter"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-youtube"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-whatsapp"></i></a>&nbsp;&nbsp;
+                            </div>
+                        </div>                            
+                    </div><hr>
+                    <div class=" text-center ">
+                        &copy; <a class="border-bottom" href="#" style="color:whitesmoke">Recipe Healthy Book</a>, All Right Reserved.                             
+                            Designed By <a class="border-bottom" style="color:whitesmoke; text-decoration: none;" >Nikita Khatri</a>
+                    </div>
+                </div>
+            </div>
+        <!--End Footer-->
+    </body>
+</html>

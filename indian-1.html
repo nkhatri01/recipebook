@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Recipe Book</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/logo.png">
+        <!-- CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const myCarouselElement = document.querySelector('#myCarousel');
+                if (myCarouselElement) {
+                    const carousel = new bootstrap.Carousel(myCarouselElement, {
+                        interval: 2000,
+                        touch: false
+                    });
+                }
+    
+                const currentLocation = window.location.pathname.split("/").pop();
+                const navLinks = document.querySelectorAll('.nav-link');
+    
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentLocation) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
+        <style>
+            /* Add underline to active link */
+            .nav-link.active {
+                background:#000000;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Start Header -->
+            <div class="container-fluid">
+                <div class="row bg-dark text-white py-2">
+                    <div class="col-md-8">
+                        <i class="bi bi-telephone-fill"></i> +91 8765432101 &nbsp;
+                        <i class="bi bi-envelope-fill"></i> recipeinfo@gmail.com
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <h5 id="greeting" class="mb-0">Welcome!</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg bg-success">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="recipe-items-list.html">Recipes</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Recipe Details
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <b>Indian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-1.html">
+                                                            <img src="img/r-1.PNG" width="50" height="50" alt="One Pan Coconut Chettinad Prawn Curry">
+                                                            One Pan Coconut Chettinad Prawn Curry
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-2.html">
+                                                            <img src="img/r-2.PNG" width="50" height="50" alt="Vegetable Curry with chickpeas and coconut milk">
+                                                            Vegetable Curry with chickpeas and coconut milk
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-3.html">
+                                                            <img src="img/r-3.PNG" width="50" height="50" alt="Tikka Masala Vegetarian Pies">
+                                                            Tikka Masala Vegetarian Pies
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <b>Italian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-1.html">
+                                                            <img src="img/italian-1.PNG" width="50" height="50" alt="Creamy Tomato Risotto">
+                                                            Creamy Tomato Risotto
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-2.html">
+                                                            <img src="img/italian-2.PNG" width="50" height="50" alt="Roast Pepper Pesto with Pasta">
+                                                            Roast Pepper Pesto with Pasta
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-3.html">
+                                                            <img src="img/italian-3.PNG" width="50" height="50" alt="Spaghetti with Smoky Tomato & Seafood Sauce">
+                                                            Spaghetti with Smoky Tomato & Seafood Sauce
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="addrecipe.html">Submit Recipe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="about.html">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <button class="nav-link dropdown-toggle btn btn-dark text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Register
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item text-center"><i class="bi bi-person-circle s75"></i></li>
+                                            <li><a class="dropdown-item" href="Register.html">Register</a></li>
+                                        </ul>                                   
+                                    </li>
+                                </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-dark" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="text-center my-3">
+                        <img src="img/logo.png" width="100" height="100" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        <!-- End Header -->
+        <!--Start Home Slider-->
+            <section class="row">
+                <div class="container">
+                    <img src="img/banner.PNG" alt="Snow" style="width:100%; height:300px">
+                    <div class="centered-left">
+                        <h2 class="s45 bg-success  p-3">One Pan Coconut Chettinad Prawn Curry</h2>
+                    </div> 
+                </div>
+            </section><br><br>
+        <!--End Home Slider-->
+        <!--Start Section-->
+            <section class="container">
+                <div class="row">
+                    <div class="leftcolumn col-lg-8">
+                        <div class="leftcolumn">
+                            <h3 class="black align-left">One Pan Coconut Chettinad Prawn Curry</h3>
+                        </div>
+                        
+                        <!-- Button to open the modal -->
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            Watch Video
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="videoModalLabel">YouTube Video</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe src="https://www.youtube.com/embed/sZ3e22cluSY?si=TxasU8Ss3pNpyQXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container">
+                            <img src="img/r-home.PNG"  width="100%" height="450px">
+                            <div class="align-right">
+                                
+                            </div>
+                            <div class="grid-items p-2 m-0  d-none d-md-block">
+                                <div class="row">
+                                    <div class="col ">
+                                        <font color="#00BF63"><b>Yield:</b></font> 4 servings
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"><b>Servings:</b></font> 4 plates
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"> <b>Prep Time:</b></font> 15 min
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"><b>Cook Time:</b></font> 20 min
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"><b>Ready In:</b></font> 35 min
+                                    </div>
+                                </div>
+                            </div><br>
+                        </div><br>
+                        <div class="container">
+                            <div class=" p-5" style="background:#BDE098">
+                                <div class="left-column align-left">
+                                    <p class="black ">Cuisine: <b>Indian</b>
+                                        Course: <b>Main Course</b>
+                                        Skill Level: <b>Difficult</b>
+                                    </p>
+                                </div>
+                                <hr>
+                                <p class="align-left">
+                                    A street hawker style Indian curry with prawns and rice that's quick and easy. 
+                                    Try this one-pot Indian Coconut prawn curry made with authentic spices using Street Kitchen kits.
+                                    Cook with prawns and rice in one pan for a dinner that's ready in just 30 minutes.
+                                </p>
+                                <br>
+                                <div class="Ingredients row">
+                                    <div class="leftcolumn black-1 align-left col br">
+                                        <h2 class="black-1"> Ingredients</h2>
+                                        
+                                        <ul type="square" class="black-2">
+                                            <li>Prawns: 500g</li>
+                                            <li>Coconut Milk: 400ml</li>
+                                            <li>Onions: 2 medium</li>
+                                            <li>Tomatoes: 2 medium</li>
+                                            <li>Ginger: 1-inch piece</li>
+                                            <li>Garlic: 4 cloves</li>
+                                            <li>Oil: 2 tablespoons</li>
+                                            <li>Spices: (cumin, coriander, turmeric, pepper)<br> ~ 2 tablespoons total</li>
+                                        </ul>
+                                    </div>
+                                    <div class="rightcolumn align-left col">
+                                        <h2 class="black-1">Nutritions</h2>
+                                        <ul type="radius" class="black-2">
+                                            <li>Calories: 300 kcal</li>
+                                            <li>Protein: 22g</li>
+                                            <li>Carbohydrates: 10g</li>
+                                            <li>Fiber: 2g</li>
+                                            <li>Sugar: 3g</li>
+                                            <li>Fat: 20g</li>
+                                            <li>Saturated Fat: 15g</li>
+                                            <li>Cholesterol: 150mg</li>
+                                            <li>Sodium: 600mg</li>
+                                            <li>Potassium: 400mg</li>
+                                            <li>Vitamin A: 10% DV</li>
+                                            <li>Vitamin C: 20% DV</li>
+                                            <li>Calcium: 8% DV</li>
+                                            <li>Iron: 15% DV</li>
+                                        </ul>
+                                    </div>
+                                </div><br><br>
+                                <h2 class="black-2 align-left">Step By Step Methods</h2>
+                                    <div class="accordion" id="accordionExample" >
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Step 1
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Place prawns in a bowl and add the ginger & garlic paste from the Street Kitchen pack. Stir to coat.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Step 2
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Heat 1 tbsp of the oil in a large non-stick lidded frying pan over medium high heat. Add the prawns and cook, stirring, for 2-3 minutes or until lightly coloured. Transfer to a plate.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Step 3
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Heat remaining oil in the pan and add the Street Kitchen spices. Cook for 1-2 minutes or until aromatic. Add the tomatoes and cook over high heat for 2 minutes or until starting to split.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFour">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    Step 4
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Pour in the curry sauce and bring to a simmer. Stir in 1 cup of water and the coconut milk. Add the rice, stir to combine, cover and cook for 10 minutes or until the rice is almost cooked.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFive">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    Step 5
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Return prawns and chilli to the pan, gently stir to combine. Cover and cook for a further 2 minutes or until the rice and prawns are cooked.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingSix">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                                    Step 6
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Serve the prawns and rice, scattered with remaining chilli, coriander, and lime wedges.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><br><br>
+                                <h2 class="black-2 align-left">Tips & Variations with Additional Tips</h2>
+                                <ol start="1" class="black-2 align-left">
+                                    <li><h3 class="black-2 align-left">Tips</h3></li>
+                                    <ul>
+                                        <li><b>Fresh Ingredients:</b> Use fresh prawns for the best flavor. Thaw and dry frozen prawns before cooking.</li>
+                                        <li><b>Even Coating:</b> Ensure prawns are evenly coated with ginger & garlic paste.</li>
+                                        <li><b>Cook Prawns Carefully:</b> Lightly color the prawns initially to avoid overcooking later.</li>
+                                        <li><b>Spices:</b> Toast spices in oil to release flavors, but avoid burning them.</li>
+                                        <li><b>Tomatoes:</b> Use ripe tomatoes and cook until they start to split for richer flavor.</li>
+                                        <li><b>Rice Cooking:</b> Check rice towards the end, adding water if necessary.</li>
+                                        <li><b>Balancing Flavors:</b> Adjust seasoning with salt, lime juice, or more chilli to taste.</li>
+                                    </ul>
+                                    <li><h3 class="black-2 align-left">Variations</h3></li>
+                                    <ul>
+                                        <li><b>Vegetables:</b> Add bell peppers, peas, spinach, or zucchini for extra nutrition.</li>
+                                        <li><b>Protein Alternatives:</b> Substitute prawns with chicken, tofu, or paneer.</li>
+                                        <li><b>Spice Level:</b> Adjust chilli to your heat preference.</li>
+                                        <li><b>Coconut Milk:</b> Use full-fat for richer curry or light coconut milk/broth for a lighter version.</li>
+                                        <li><b>Herbs:</b> Try fresh basil or mint instead of coriander.</li>
+                                        <li><b>Grains:</b> Use quinoa, couscous, or cauliflower rice instead of regular rice.</li>
+                                        <li><b>Tanginess:</b> Add tamarind paste or lemon juice for a tangy twist.</li>
+                                        <li><b>Nuts:</b> Garnish with toasted cashews or almonds for crunch.</li>
+                                        <li><b>Creamy Texture:</b> Stir in plain yogurt or cream at the end.</li>
+                                    </ul>
+                                    <li><h3 class="black-2 align-left">Additional Tips</h3></li>
+                                    <ul>
+                                        <li><b>Serving:</b> Serve the curry with warm naan bread or roti for a complete meal.</li>
+                                        <li><b>Storage:</b> Store leftovers in an airtight container in the refrigerator for up to 2 days. Reheat gently to avoid overcooking the prawns.</li>
+                                        <li><b>Marinade:</b> Let the prawns marinate in the ginger & garlic paste for 15-30 minutes for enhanced flavor.</li>
+                                    </ul>
+                                </ol>
+                                <hr>
+                                <p class="black-2 align-left">Enjoy experimenting with your prawn curry and make it your own with these tips and variations!</p>
+                                <div class="rating-box align-left">
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-figure black-2">(4.8 / 5)</span><br><br><br>
+                                </div>
+                            </div><br><br>
+                            <div class="recipe-comments black-2 align-left" >
+                                <h3 class="lined">Comments (2)</h3>
+                                <ul style="list-style:none">
+                                    <li>
+                                        <div class="avatar">
+                                            <img src="img/client.PNG" width="80px" height="80px" alt="avatar">
+                                        </div>
+                                        <div class="comment">
+                                            <h5>Janvu Patel</h5>
+                                            <span class="time">12 hours ago</span>
+                                            <p>"This One Pan Coconut Chettinad Prawn Curry is an absolute game-changer! The rich, creamy coconut base perfectly balances the bold and aromatic Chettinad spices, creating a symphony of flavors in every bite. Plus, it's so easy to make and clean up with just one pan. My family couldn't get enough of it!"</p>
+                                            <a href="#" class="reply-button" onclick="showReplyForm(event, this)">Reply</a>
+                                        </div>
+                                    </li><br>
+                                    <li>
+                                        <div class="avatar">
+                                            <img src="img/client-2.PNG" width="80px" height="80px" alt="avatar">
+                                        </div>
+                                        <div class="comment">
+                                            <h5>Karishma Khatri</h5>
+                                            <span class="time">Just now</span>
+                                            <p>"Wow, this dish is a winner! The prawns are succulent and infused with the vibrant, spicy Chettinad flavors, while the coconut milk adds a delicious creaminess. The best part? It all comes together in one pan, making it a hassle-free yet impressive meal. Definitely a new favorite in our household!"</p>
+                                            <a href="#" class="reply-button" onclick="showReplyForm(event, this)">Reply</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                       
+                    </div>
+                    <div class="right-column col-lg-4">
+                        <div class="row">
+                            <h2 class="black">Get Social With Us</h2><br>
+                            <hr style="color:black">
+                            <div class="card  text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 p-3" style="width:8rem;">
+                                <i class="bi bi-facebook black"></i>
+                                <span class="black">
+                                    36.5K<br>
+                                    <b>LIKES</b>
+                                </span>
+                                
+                            </div> &nbsp;&nbsp;&nbsp;
+                            <div class="card  text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3 p-3" style="width:8rem">
+                                <i class="bi bi-instagram black"></i>
+                                <span class="black">
+                                    36.5K<br>
+                                    <b>LIKES</b>
+                                </span>
+                                
+                            </div> &nbsp;&nbsp;&nbsp;
+                            <div class="card  text-info-emphasis bg-info-subtle border border-info-subtle rounded-3 p-3"  style="width:8rem">
+                                <i class="bi bi-google black"></i>
+                                <span class="black">
+                                    36.5K<br>
+                                    <b>LIKES</b>
+                                </span>
+                                
+                            </div> 
+                        </div><br>
+                        <div class="card">
+                            <img src="img/extra.PNG" width="100%" height="100%">
+                        </div><br>
+                        <div class="card">
+                            <h3>Follow Me</h3>
+                            <p>Recipe Healthy Book</p>
+                        </div><br><br><br><br><br><br><br><br><br><br>
+                        <div class="card ">
+                            <h2>About Chef</h2>
+                            <img src="img/c-2.PNG" alt="Jane" style="padding:20px; height:380px" >
+                            <div class="container black">
+                              <h3>Marrie Lucci</h3>
+                              <p class="title">Italian Dishes Chef</p>
+                              <span class="heading-bell">
+                                <svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    <g>
+                                        <title>background</title>
+                                        <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                    </g>
+                                    <g>
+                                        <title>Layer 1</title>
+                                        <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </span><hr id="#2c9c68">
+                              <p>Our chef is famous for her delicious cooking.</p>
+                              <p>Marrie@gmail.com</p>
+                            </div>
+                        </div><br><br><br>
+                        <div class="card p-3">
+                            <h2>Leave Comments</h2>
+                            <form class="row g-4 align-left p-3" onsubmit="submitComment(event, this)">
+                                <div class="col-12">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                </div>
+                                <div class="col-12">
+                                    <label  class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Comment</label>
+                                    <textarea type="textarea" class="form-control" id="comment" placeholder="Comment" ></textarea>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                                </div>
+                                  
+                            </form>
+                        </div>
+                        
+                    </div>
+    
+                </div><br>
+            </section>
+        <!--End Secion-->
+        <!--Start Footer-->
+            <div class="footer bg-success w100 p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 >About Us</h4>
+                            <p >"Discover easy, healthy recipes for every diet at Healthy Recipe Book."</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Newsletter</h4>
+                            <form class="d-flex">
+                                <input class="form-control me-2 w-75" type="text" id="searchInput" placeholder="Search">
+                                <button class="btn btn-dark" type="button" onclick="search()">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Get Social With Us</h4>
+                            <div class="d-flex pt-2 text-center ">
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-facebook"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-google"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-telegram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-twitter"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-youtube"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-whatsapp"></i></a>&nbsp;&nbsp;
+                            </div>
+                        </div>                            
+                    </div><hr>
+                    <div class=" text-center ">
+                        &copy; <a class="border-bottom" href="#" style="color:whitesmoke">Recipe Healthy Book</a>, All Right Reserved.                             
+                            Designed By <a class="border-bottom" style="color:whitesmoke; text-decoration: none;" >Nikita Khatri</a>
+                    </div>
+                </div>
+            </div>
+        
+            <!--End Footer-->
+    </body>
+</html>

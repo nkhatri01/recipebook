@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Recipe Book</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/logo.png">
+        <!-- CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const myCarouselElement = document.querySelector('#myCarousel');
+                if (myCarouselElement) {
+                    const carousel = new bootstrap.Carousel(myCarouselElement, {
+                        interval: 2000,
+                        touch: false
+                    });
+                }
+    
+                const currentLocation = window.location.pathname.split("/").pop();
+                const navLinks = document.querySelectorAll('.nav-link');
+    
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentLocation) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
+        <style>
+            /* Add underline to active link */
+            .nav-link.active {
+                background:#000000;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Start Header -->
+            <div class="container-fluid">
+                <div class="row bg-dark text-white py-2">
+                    <div class="col-md-8">
+                        <i class="bi bi-telephone-fill"></i> +91 8765432101 &nbsp;
+                        <i class="bi bi-envelope-fill"></i> recipeinfo@gmail.com
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <h5 id="greeting" class="mb-0">Welcome!</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg bg-success">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="recipe-items-list.html">Recipes</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Recipe Details
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <b>Indian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-1.html">
+                                                            <img src="img/r-1.PNG" width="50" height="50" alt="One Pan Coconut Chettinad Prawn Curry">
+                                                            One Pan Coconut Chettinad Prawn Curry
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-2.html">
+                                                            <img src="img/r-2.PNG" width="50" height="50" alt="Vegetable Curry with chickpeas and coconut milk">
+                                                            Vegetable Curry with chickpeas and coconut milk
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-3.html">
+                                                            <img src="img/r-3.PNG" width="50" height="50" alt="Tikka Masala Vegetarian Pies">
+                                                            Tikka Masala Vegetarian Pies
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <b>Italian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-1.html">
+                                                            <img src="img/italian-1.PNG" width="50" height="50" alt="Creamy Tomato Risotto">
+                                                            Creamy Tomato Risotto
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-2.html">
+                                                            <img src="img/italian-2.PNG" width="50" height="50" alt="Roast Pepper Pesto with Pasta">
+                                                            Roast Pepper Pesto with Pasta
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-3.html">
+                                                            <img src="img/italian-3.PNG" width="50" height="50" alt="Spaghetti with Smoky Tomato & Seafood Sauce">
+                                                            Spaghetti with Smoky Tomato & Seafood Sauce
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="about.html">Submit Recipe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="about.html">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <button class="nav-link dropdown-toggle btn btn-dark text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Register
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item text-center"><i class="bi bi-person-circle s75"></i></li>
+                                            <li><a class="dropdown-item" href="Register.html">Register</a></li>
+                                        </ul>                                 
+                                    </li>
+                                </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-dark" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="text-center my-3">
+                        <img src="img/logo.png" width="100" height="100" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        <!-- End Header -->
+        <!--Start Home Slider-->
+            <section class="row">
+                <div class="container">
+                    <img src="img/banner.PNG" alt="Banner" style="width:100%; height:300px">
+                    <div class="centered-left">
+                        <h2 class="s45 bg-success  p-3">Contact Page</h2>
+                    </div>
+                </div>
+            </section><br><br>
+        <!--End Home Slider-->
+        <!-- Start main contact -->
+            <section class="container">
+                <div class="row">
+                    <h2 class="black-1 smallcaps">Our Locations </h2>
+                        
+                    <div class="container black-1 p-3 bg-light text-center">
+                        <div class="row m-3" style="border:6px double black">
+                          <div class="col p-3">
+                            <h5 class="align-left black-1">Registered office</h5><hr>
+                            <p class="s15 align-left">Recipe Healthy Book, Amaa Bhawan, 44 Plot no, Thana,  Mumbai.</p>
+                            <br>
+                            <p class="s15 align-left">
+                                <i class="bi bi-telephone-fill black-1 s15"></i>&nbsp;<b>Phone :&nbsp;+91 8765432101</b><br>
+                                <i class="bi bi-envelope-fill black-1 s15"></i>&nbsp;<b>Email :&nbsp;recipebook@gmail.com</b>
+                            </p>
+                          </div>
+                          <div class="col p-3">
+                            <h5 class="align-left black-1">Our Book</h5><hr>
+                            <p class="s15 align-left">A book available in flipkart, amazon, meesho and freepik.</p><br>
+                            <p class="s15 align-left">
+                                <i class="bi bi-telephone-fill black-1 s15"></i>&nbsp;<b>Phone :&nbsp;+91 8765432101</b><br>
+                                <i class="bi bi-envelope-fill black-1 s15"></i>&nbsp;<b>Email :&nbsp;recipebook@gmail.com</b>
+                            </p>
+                          </div>
+                          <div class="col p-3">
+                            <h5 class="align-left black-1">Other Office</h5><hr>
+                            <p class="s15 align-left">Recipe Healthy Book, Amaa Bhawan near jain mandir, 67 Plot no, Thana,  Mumbai..</p><br>
+                            <p class="s15 align-left">
+                                <i class="bi bi-telephone-fill black-1 s15"></i>&nbsp;<b>Phone :&nbsp;+91 8765432101</b><br>
+                                <i class="bi bi-envelope-fill black-1 s15"></i>&nbsp;<b>Email :&nbsp;recipebook@gmail.com</b>
+                            </p>
+                          </div><hr class="p-3"><br>
+                          <div class="col p-3 s15 bold">
+                            <h2 class="align-left black-1">Quick Contact</h2><hr>
+                            <form class="row g-4 align-left p-3" onsubmit="submitComment(event, this)">
+                                <div class="col-12">
+                                    <label class="form-label ">Username</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                </div>
+                                <div class="col-12">
+                                    <label  class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                                <div class="col-12">
+                                    <label  class="form-label">Phone</label>
+                                    <input type="phone" class="form-control" id="phone" placeholder="Phone No.">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Comment</label>
+                                    <textarea type="textarea" class="form-control" id="comment" placeholder="Comment" ></textarea>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                                </div>
+                                  
+                            </form>
+                          </div>
+                          <div class="col p-3">
+                            <h2 class="align-left black-1">Find Location on Map</h2><hr>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d482633.0405010171!2d72.5515066500711!3d19.082606792362196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2snl!4v1719144143754!5m2!1sen!2snl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+            </section><br>
+        <!-- End main contact -->
+        <!--Start Footer-->
+            <div class="footer bg-success w100 p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 >About Us</h4>
+                            <p >"Discover easy, healthy recipes for every diet at Healthy Recipe Book."</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Newsletter</h4>
+                            <form class="d-flex">
+                                <input class="form-control me-2 w-75" type="text" id="searchInput" placeholder="Search">
+                                <button class="btn btn-dark" type="button" onclick="search()">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Get Social With Us</h4>
+                            <div class="d-flex pt-2 text-center ">
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-facebook"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-google"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-telegram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-twitter"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-youtube"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-whatsapp"></i></a>&nbsp;&nbsp;
+                            </div>
+                        </div>                            
+                    </div><hr>
+                    <div class=" text-center ">
+                        &copy; <a class="border-bottom" href="#" style="color:whitesmoke">Recipe Healthy Book</a>, All Right Reserved.                             
+                            Designed By <a class="border-bottom" style="color:whitesmoke; text-decoration: none;" >Nikita Khatri</a>
+                    </div>
+                </div>
+            </div>
+        <!--End Footer-->
+    </body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Recipe Book</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/logo.png">
+        <!-- CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const myCarouselElement = document.querySelector('#myCarousel');
+                if (myCarouselElement) {
+                    const carousel = new bootstrap.Carousel(myCarouselElement, {
+                        interval: 2000,
+                        touch: false
+                    });
+                }
+    
+                const currentLocation = window.location.pathname.split("/").pop();
+                const navLinks = document.querySelectorAll('.nav-link');
+    
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentLocation) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
+        <style>
+            /* Add underline to active link */
+            .nav-link.active {
+                background:#000000;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Start Header -->
+            <div class="container-fluid">
+                <div class="row bg-dark text-white py-2">
+                    <div class="col-md-8">
+                        <i class="bi bi-telephone-fill"></i> +91 8765432101 &nbsp;
+                        <i class="bi bi-envelope-fill"></i> recipeinfo@gmail.com
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <h5 id="greeting" class="mb-0">Welcome!</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg bg-success">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="recipe-items-list.html">Recipes</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle text-white active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Recipe Details
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <b>Indian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-1.html">
+                                                            <img src="img/r-1.PNG" width="50" height="50" alt="One Pan Coconut Chettinad Prawn Curry">
+                                                            One Pan Coconut Chettinad Prawn Curry
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-2.html">
+                                                            <img src="img/r-2.PNG" width="50" height="50" alt="Vegetable Curry with chickpeas and coconut milk">
+                                                            Vegetable Curry with chickpeas and coconut milk
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="indian-3.html">
+                                                            <img src="img/r-3.PNG" width="50" height="50" alt="Tikka Masala Vegetarian Pies">
+                                                            Tikka Masala Vegetarian Pies
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <b>Italian recipes</b>
+                                                <ul class="list-unstyled ms-3">
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-1.html">
+                                                            <img src="img/italian-1.PNG" width="50" height="50" alt="Creamy Tomato Risotto">
+                                                            Creamy Tomato Risotto
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-2.html">
+                                                            <img src="img/italian-2.PNG" width="50" height="50" alt="Roast Pepper Pesto with Pasta">
+                                                            Roast Pepper Pesto with Pasta
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="italian-3.html">
+                                                            <img src="img/italian-3.PNG" width="50" height="50" alt="Spaghetti with Smoky Tomato & Seafood Sauce">
+                                                            Spaghetti with Smoky Tomato & Seafood Sauce
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="addrecipe.html">Submit Recipe</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="about.html">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="contact.html">Contact</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <button class="nav-link dropdown-toggle btn btn-dark text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Register
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item text-center"><i class="bi bi-person-circle s75"></i></li>
+                                            <li><a class="dropdown-item" href="Register.html">Register</a></li>
+                                        </ul>                                  
+                                    </li>
+                                </ul>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-dark" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="text-center my-3">
+                        <img src="img/logo.png" width="100" height="100" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        <!-- End Header -->
+        <!--Start Home Slider-->
+            <section class="row">
+                <div class="container">
+                    <img src="img/banner.PNG" alt="Banner" style="width:100%; height:300px">
+                    <div class="centered-left">
+                        <h2 class="s45 bg-success  p-3">Creamy Tomato Risotto</h2>
+                    </div>
+                </div>
+            </section><br><br>
+        <!--End Home Slider-->
+        <!--Start Section-->
+            <section class="container">
+                <div class="row">
+                    <div class="leftcolumn col-lg-8">
+                        <div class="leftcolumn">
+                            <h3 class="black align-left">Creamy Tomato Risotto</h3>
+                        </div>
+                        
+                        <!-- Button to open the modal -->
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            Watch Video
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="videoModalLabel">YouTube Video</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="ratio ratio-16x9">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/tvHg9p5JqK0?si=T4kF6RKoSskAFakc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container">
+                            <img src="img/italian-home-1.PNG"  width="100%" height="450px">
+                            <div class="align-right">
+                                
+                            </div>
+                            <div class="grid-items p-2 m-0  d-none d-md-block">
+                                <div class="row">
+                                    <div class="col ">
+                                        <font color="#00BF63"><b>Yield:</b></font> 4 servings
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"><b>Servings:</b></font> 4 plates
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"> <b>Prep Time:</b></font> 10 min
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"><b>Cook Time:</b></font> 45 min
+                                    </div>
+                                    <div class="col">
+                                        <font color="#00BF63"><b>Ready In:</b></font> 45 min
+                                    </div>
+                                </div>      
+                            </div><br>
+                        </div><br>
+                        <div class="container">
+                            <div class=" p-5" style="background:#BDE098">
+                                <div class="left-column align-left">
+                                    <p class="black ">Cuisine: <b>Indian</b>
+                                        Course: <b>Dinner</b>
+                                        Skill Level: <b>Difficult</b>
+                                    </p>
+                                </div>
+                                <hr>
+                                <p class="align-left">
+                                    <b>Creamy Tomato Risotto:</b> Silky and tangy with a rich tomato essence, balanced by creamy textures. Subtle garlic and herb undertones enhance the vibrant, comforting flavor, making it a delightful and satisfying dish.
+                                </p>
+                                <br>
+                                <div class="Ingredients row">
+                                    <div class="leftcolumn black-1 align-left col br">
+                                        <h2 class="black-1"> Ingredients</h2>
+                                        
+                                        <ul type="square" class="black-2">
+                                            <li>400g can chopped tomato</li>
+                                            <li>1l vegetable stock</li>
+                                            <li>knob of butter</li>
+                                            <li>1 tbsp olive oil</li>
+                                            <li>1 onion, finely chopped</li>
+                                            <li>2 garlic cloves, finely chopped</li>
+                                            <li>1 rosemary sprig, finely chopped</li>
+                                            <li>250g risotto rice</li>
+                                            <li>300g cherry tomato, halved</li>
+                                            <li>small pack basil, roughly torn</li>
+                                            <li>4 tbsp grated parmesan</li>
+                                        </ul>
+                                    </div>
+                                    <div class="rightcolumn align-left col">
+                                        <h2 class="black-1">Nutritions per Serving (1 cup or about 240g)</h2>
+                                        <ul type="radius" class="black-2">
+                                            <li>Calories:  381 kcal</li>
+                                            <li>Fat: 10g</li>
+                                            <li>Saturates: 4g</li>
+                                            <li>Carbs: 61g</li>
+                                            <li>Sugars: 9g</li>
+                                            <li>Fibre: 4g</li>
+                                            <li>Protein: 13g</li>
+                                            <li>Salt: 1.1g</li>
+                                        </ul>
+                                    </div>
+                                </div><br><br>
+                                <h2 class="black-2 align-left">Step By Step Methods</h2>
+                                    <div class="accordion" id="accordionExample" >
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Step 1
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Tip the chopped tomatoes and half the stock into a food processor and pulse until smooth. Pour into a saucepan with the remaining stock, bring to a gentle simmer and keep over a low heat.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Step 2
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Meanwhile, place the butter and oil in the base of a large saucepan and heat gently until the butter has melted. Add the onion and gently cook for 6-8 mins until softened. Stir in the garlic and rosemary, then cook for 1 min more. Add the rice and cook, stirring, for 1 min.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Step 3
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Start adding the hot stock and tomato mixture about a quarter at a time. Let the risotto cook, stirring often, adding more stock as it is absorbed. After you have added half the stock, add the cherry tomatoes. After 20-25 mins, the rice should be creamy and tender, the cherry tomatoes softened and all of the stock should be used up.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFour">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    Step 4
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <p class="s18">Cover and leave for 1 min, then stir in the basil. Serve sprinkled with Parmesan and a good grinding of black pepper.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><br><br>
+                                <h2 class="black-2 align-left">Tips & Variations with Additional Tips</h2>
+                                <ol start="1" class="black-2 align-left">
+                                    <li><h3 class="black-2 align-left">Tips</h3></li>
+                                    <ul>
+                                        <li><b>Quality Ingredients:</b> Use high-quality Arborio rice, fresh tomatoes or puree, and fresh herbs.</li>
+                                        <li><b>Consistent Stirring:</b> Stir frequently to release starches for creaminess.</li>
+                                        <li><b>Warm Stock:</b> Use warm stock to maintain temperature and aid absorption.</li>
+                                        <li><b>Layer Flavors:</b> Sauté garlic and onions, then deglaze with white wine.</li>
+                                        <li><b>Slow Addition of Liquid:</b> Add stock one ladle at a time for even absorption.</li>
+                                        <li><b>Finish with Butter and Cheese:</b> Stir in butter and Parmesan for extra creaminess.</li>
+                                    </ul>
+                                    <li><h3 class="black-2 align-left">Variations</h3></li>
+                                    <ul>
+                                        <li><b>Seafood Risotto:</b> Add cooked shrimp or scallops.</li>
+                                        <li><b>Vegetable Medley:</b> Add sautéed vegetables like zucchini, bell peppers, and spinach.</li>
+                                        <li><b>Herb Infusion:</b> Use different herbs like basil, thyme, or rosemary.</li>
+                                        <li><b>Mushroom Risotto:</b> Add sautéed mushrooms.</li>
+                                        <li><b>Spicy Tomato Risotto:</b> Include red pepper flakes or diced jalapeños.</li>
+                                        <li><b>Vegan Option:</b> Use vegetable stock and vegan substitutes for butter and Parmesan.
+                                    </ul>
+                                    <li><h3 class="black-2 align-left">Additional Tips</h3></li>
+                                    <ul>
+                                        <li><b>Prep Ahead:</b> Chop vegetables and measure ingredients before starting.</li>
+                                        <li><b>Taste and Adjust:</b> Taste frequently and adjust seasoning.</li>
+                                        <li><b>Resting Time:</b> Let the risotto sit off the heat before serving.</li>
+                                        <li><b>Presentation:</b> Garnish with fresh herbs and olive oil.</li>
+                                        <li><b>Leftovers:</b> Make arancini from leftover risotto.</li>
+                                        <li><b>Wine Pairing:</b> Serve with a dry white wine like Sauvignon Blanc.</li>
+                                    </ul>
+                                </ol>
+                                <hr>
+                                <p class="black-2 align-left">exploring the variations, you can create delicious Creamy Tomato Risotto that are flavorful, Tangy, satisfying, and versatile.</p>
+                                <div class="rating-box align-left">
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-icons"><svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                
+                                        <g>
+                                            <title>background</title>
+                                            <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                        </g>
+                                        <g>
+                                            <title>Layer 1</title>
+                                            <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </g>
+                                    </svg></span>
+                                    <span class="rating-figure black-2">(4.2 / 5)</span><br><br><br>
+                                </div>
+                            </div><br><br>
+                            <div class="recipe-comments black-2 align-left" >
+                                <h3 class="lined">Comments (2)</h3>
+                                <ul style="list-style:none">
+                                    <li>
+                                        <div class="avatar">
+                                            <img src="img/client.PNG" width="80px" height="80px" alt="avatar">
+                                        </div>
+                                        <div class="comment">
+                                            <h5>Tina Chouhan</h5>
+                                            <span class="time">(2 hours ago)</span>
+                                            <p>"This creamy tomato risotto is a perfect blend of rich, tangy tomato flavor and velvety smoothness. The Arborio rice absorbs the delicious broth perfectly, creating a comforting and satisfying dish that's ideal for any meal."</p>
+                                            <a href="#" class="reply-button" onclick="showReplyForm(event, this)">Reply</a>
+                                        </div>
+                    
+                                    <li>
+                                        <div class="avatar">
+                                            <img src="img/client-2.PNG" width="80px" height="80px" alt="avatar">
+                                        </div>
+                                        <div class="comment">
+                                            <h5>Rekha patel</h5>
+                                            <span class="time">(2 hours ago)</span>
+                                            <p>"Absolutely loved this dish! The balance between the creamy texture and the vibrant tomato flavor is spot on. The hint of garlic and herbs elevates the risotto, making it a delightful and gourmet experience."</p>
+                                            <a href="#" class="reply-button" onclick="showReplyForm(event, this)">Reply</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                       
+                    </div>
+                    <div class="right-column col-lg-4">
+                        <div class="row">
+                            <h2 class="black">Get Social With Us</h2><br>
+                            <hr style="color:black">
+                            <div class="card  text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 p-3" style="width:8rem;">
+                                <i class="bi bi-facebook black"></i>
+                                <span class="black">
+                                    36.5K<br>
+                                    <b>LIKES</b>
+                                </span>
+                                
+                            </div> &nbsp;&nbsp;&nbsp;
+                            <div class="card  text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3 p-3" style="width:8rem">
+                                <i class="bi bi-instagram black"></i>
+                                <span class="black">
+                                    36.5K<br>
+                                    <b>LIKES</b>
+                                </span>
+                                
+                            </div> &nbsp;&nbsp;&nbsp;
+                            <div class="card  text-info-emphasis bg-info-subtle border border-info-subtle rounded-3 p-3"  style="width:8rem">
+                                <i class="bi bi-google black"></i>
+                                <span class="black">
+                                    36.5K<br>
+                                    <b>LIKES</b>
+                                </span>
+                                
+                            </div> 
+                        </div><br>
+                        <div class="card">
+                            <img src="img/extra.PNG" width="100%" height="100%">
+                        </div><br>
+                        <div class="card">
+                            <h3>Follow Me</h3>
+                            <p>Recipe Healthy Book</p>
+                        </div><br><br><br><br><br><br><br>
+                        <div class="card ">
+                            <h2>About Chef</h2>
+                            <img src="img/c-4.PNG" alt="Jane" style="padding:20px; height:380px" >
+                            <div class="container black">
+                              <h3>Lorenzo Conti</h3>
+                              <p class="title">Italian Dishes Chef</p>
+                              <span class="heading-bell">
+                                <svg class="icon-container" width="25" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
+                                    <g>
+                                        <title>background</title>
+                                        <rect fill="none" height="21" width="27" y="-1" x="-1"></rect>
+                                    </g>
+                                    <g>
+                                        <title>Layer 1</title>
+                                        <path class="icon-svg" d="m24.671816,17.625433c0,0.438 -0.286999,0.801001 -0.681,0.935001c-0.095001,0.036999 -0.198002,0.064999 -0.318001,0.064999l-16.000998,0c-0.553,0 -1,-0.448 -1,-1c0,-0.553999 0.447,-1 1,-1l14.950999,0c-0.500999,-5.053999 -4.764997,-9 -9.950999,-9c-5.523,0 -10,4.477001 -10,10c0,0 0.063,1 -1,1c-1.062,0 -1,-1 -1,-1c0,-5.769999 4.071,-10.581999 9.495001,-11.734999c-0.306002,-0.52 -0.495001,-1.117001 -0.495001,-1.765001c0,-1.933999 1.566999,-3.499999 3.5,-3.499999c1.931999,0 3.499,1.567 3.499,3.499999c0,0.739 -0.232998,1.423 -0.624998,1.989c4.984999,1.459 8.625998,6.056 8.625998,11.511l0,0zm-11.499,-15c-0.828999,0 -1.500999,0.670001 -1.500999,1.499001c0,0.827999 0.672001,1.5 1.500999,1.5c0.828001,0 1.499001,-0.672001 1.499001,-1.5c0,-0.829 -0.671,-1.499001 -1.499001,-1.499001l0,0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                    </g>
+                                </svg>
+                            </span><hr id="#2c9c68">
+                              <p>Our chef is famous for her delicious cooking.</p>
+                              <p>Lorenzo@gmail.com</p>
+                            </div>
+                        </div><br><br><br>
+                        <div class="card p-3">
+                            <h2>Leave Comments</h2>
+                            <form class="row g-4 align-left p-3" onsubmit="submitComment(event, this)">
+                                <div class="col-12">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                </div>
+                                <div class="col-12">
+                                    <label  class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Comment</label>
+                                    <textarea type="textarea" class="form-control" id="comment" placeholder="Comment" ></textarea>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                                </div>
+                                  
+                            </form>
+                        </div>
+                        
+                    </div>
+    
+                </div><br>
+            </section>
+        <!--End Secion-->
+       <!--Start Footer-->
+            <div class="footer bg-success w100 p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 >About Us</h4>
+                            <p >"Discover easy, healthy recipes for every diet at Healthy Recipe Book."</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Newsletter</h4>
+                            <form class="d-flex">
+                                <input class="form-control me-2 w-75" type="text" id="searchInput" placeholder="Search">
+                                <button class="btn btn-dark" type="button" onclick="search()">Search</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4>Get Social With Us</h4>
+                            <div class="d-flex pt-2 text-center ">
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-facebook"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-instagram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-google"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-telegram"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-twitter"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-youtube"></i></a>&nbsp;&nbsp;
+                                <a class="btn btn-outline-light btn-social" href="index.html"><i class="bi bi-whatsapp"></i></a>&nbsp;&nbsp;
+                            </div>
+                        </div>                            
+                    </div><hr>
+                    <div class=" text-center ">
+                        &copy; <a class="border-bottom" href="#" style="color:whitesmoke">Recipe Healthy Book</a>, All Right Reserved.                             
+                            Designed By <a class="border-bottom" style="color:whitesmoke; text-decoration: none;" >Nikita Khatri</a>
+                    </div>
+                </div>
+            </div>
+        <!--End Footer-->
+    </body>
+</html>
